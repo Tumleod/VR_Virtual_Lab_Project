@@ -54,7 +54,7 @@ public class Pour : MonoBehaviour
             elapsedTime += Time.deltaTime;
             yield return null;
         }
-        containerAmount = endAmount;
+        containerAmount = endAmount+1;
         isEmpty = true;
     }
 }
