@@ -54,26 +54,18 @@ public class SpawnSplatter : MonoBehaviour
             {
                 Instantiate(splatterParticleSystem, position, Quaternion.LookRotation(Vector3.up));
                 other.gameObject.GetComponent<SplatterScript>().IncreaseSize();
+                pour.ResetPour();
             }
             else if (other.gameObject.CompareTag("Trashcan"))
             {
-                if (
-                    kemikalieEnum
-                    == other.gameObject.GetComponent<TrashcanForChemicals>().kemikalieEnum
-                )
-                {
-                    Debug.Log("Correct");
-                    //If both kemikalieEnum are the same, then message manager that it is correct
-                }
-                else
+                if (kemikalieEnum != other.gameObject.GetComponent<TrashcanForChemicals>().kemikalieEnum)
                 {
                     pour.ResetPour();
-                    Debug.Log("Incorrect");
-                    //If both kemikalieEnum are not the same, then message manager that it is incorrect
                 }
             }
             else
             {
+                pour.ResetPour();
                 SpawnSplatterTrigger(position); // Spawn splatter at collision position
             }
         }

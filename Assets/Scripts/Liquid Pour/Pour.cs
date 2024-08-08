@@ -87,10 +87,13 @@ public class Pour : MonoBehaviour
 
     public void ResetPour()
     {
+        if (isEmpty)
+        {
+            return;
+        }
         elapsedTime = 0f;
         containerAmount = startAmount;
         liquid.fillAmount = containerAmount;
-        isEmpty = false;
     }
 
     private void PourComplete()
