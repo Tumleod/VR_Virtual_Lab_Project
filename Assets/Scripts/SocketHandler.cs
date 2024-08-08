@@ -5,12 +5,17 @@ using UnityEngine.XR.Interaction.Toolkit;
 
 public class SocketHandler : MonoBehaviour
 {
+    // Reference to the XRSocketInteractor component
     private XRSocketInteractor socketInteractor;
+
+    // Reference to the tray GameObject
     public GameObject tray;
 
     void Awake()
     {
+        // Get the XRSocketInteractor component
         socketInteractor = GetComponent<XRSocketInteractor>();
+        // Check if the XRSocketInteractor component is found
         if (socketInteractor == null)
         {
             Debug.LogError("XRSocketInteractor component not found on this GameObject.");
@@ -38,10 +43,11 @@ public class SocketHandler : MonoBehaviour
         args.interactableObject.transform.localRotation = Quaternion.identity;
         args.interactableObject.transform.localScale = Vector3.one;
 
+        // Add the object to the tray
         GameObject interactableGameObject = (args.interactableObject as MonoBehaviour)?.gameObject;
         if (interactableGameObject != null)
         {
-            tray.GetComponent<Tray>().addObjectToTray(interactableGameObject);
+            tray.GetComponent<Tray>().AddObjectToTray(interactableGameObject);
         }
         else
         {
@@ -59,7 +65,7 @@ public class SocketHandler : MonoBehaviour
             )?.gameObject;
             if (interactableGameObject != null)
             {
-                tray.GetComponent<Tray>().removeObjectFromTray(interactableGameObject);
+                tray.GetComponent<Tray>().RemoveObjectFromTray(interactableGameObject);
             }
             else
             {

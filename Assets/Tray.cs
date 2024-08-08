@@ -18,7 +18,7 @@ public class Tray : MonoBehaviour
     */
     private void Start() { }
 
-    public void addObjectToTray(GameObject obj)
+    public void AddObjectToTray(GameObject obj)
     {
         if (obj == null)
         {
@@ -36,7 +36,7 @@ public class Tray : MonoBehaviour
         }
     }
 
-    public void removeObjectFromTray(GameObject obj)
+    public void RemoveObjectFromTray(GameObject obj)
     {
         if (obj == null)
         {
@@ -54,7 +54,7 @@ public class Tray : MonoBehaviour
         }
     }
 
-    public List<LabObjects> getObjectsOnTray()
+    public List<LabObjects> GetObjectsOnTray()
     {
         List<LabObjects> labObjects = new List<LabObjects>();
         foreach (var item in objectsOnTray)
