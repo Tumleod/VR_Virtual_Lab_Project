@@ -1,0 +1,12 @@
+.mainText {
+    font-size: 20px;
+    -unity-text-align: upper-left;
+    white-space: normal;
+    position: absolute;
+}
+
+.header {
+    font-size: 40px;
+    -unity-text-align: upper-center;
+    background-color: rgba(0, 0, 0, 0);
+}

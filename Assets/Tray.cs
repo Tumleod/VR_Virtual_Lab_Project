@@ -9,13 +9,6 @@ public class Tray : MonoBehaviour
 {
     public List<GameObject> objectsOnTray = new List<GameObject>();
 
-    /*
-        public GameObject SocketObject;
-        public GameObject areaObject;
-        public int numberOfPrefabs;
-    
-        private BoxCollider areacollider;
-    */
     private void Start() { }
 
     public void AddObjectToTray(GameObject obj)
