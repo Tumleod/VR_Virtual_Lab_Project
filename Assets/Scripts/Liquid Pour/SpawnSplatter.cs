@@ -8,6 +8,11 @@ using UnityEngine.ParticleSystemJobs;
 public class SpawnSplatter : MonoBehaviour
 {
     [SerializeField]
+    Pour pour;
+
+    public KemikalieEnum kemikalieEnum;
+
+    [SerializeField]
     GameObject splatterPrefab;
 
     [SerializeField]
@@ -49,6 +54,23 @@ public class SpawnSplatter : MonoBehaviour
             {
                 Instantiate(splatterParticleSystem, position, Quaternion.LookRotation(Vector3.up));
                 other.gameObject.GetComponent<SplatterScript>().IncreaseSize();
+            }
+            else if (other.gameObject.CompareTag("Trashcan"))
+            {
+                if (
+                    kemikalieEnum
+                    == other.gameObject.GetComponent<TrashcanForChemicals>().kemikalieEnum
+                )
+                {
+                    Debug.Log("Correct");
+                    //If both kemikalieEnum are the same, then message manager that it is correct
+                }
+                else
+                {
+                    pour.ResetPour();
+                    Debug.Log("Incorrect");
+                    //If both kemikalieEnum are not the same, then message manager that it is incorrect
+                }
             }
             else
             {

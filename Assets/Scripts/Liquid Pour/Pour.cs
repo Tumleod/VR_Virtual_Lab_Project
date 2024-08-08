@@ -5,6 +5,12 @@ using UnityEngine;
 public class Pour : MonoBehaviour
 {
     [SerializeField]
+    TrashcanManager trashcanManager;
+
+    [SerializeField]
+    SpawnSplatter spawnSplatter;
+
+    [SerializeField]
     float containerAmount;
 
     [SerializeField]
@@ -76,5 +82,19 @@ public class Pour : MonoBehaviour
         containerAmount = endAmount + 1;
         liquid.fillAmount = containerAmount;
         isEmpty = true;
+        PourComplete();
+    }
+
+    public void ResetPour()
+    {
+        elapsedTime = 0f;
+        containerAmount = startAmount;
+        liquid.fillAmount = containerAmount;
+        isEmpty = false;
+    }
+
+    private void PourComplete()
+    {
+        trashcanManager.SetTrashcanCompleted(spawnSplatter.kemikalieEnum);
     }
 }
