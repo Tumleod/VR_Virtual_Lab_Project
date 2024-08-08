@@ -1,33 +1,70 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Runtime.CompilerServices;
+using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.XR.Interaction.Toolkit;
 
 public class Tray : MonoBehaviour
 {
-    private bool isFull = false;
-    public List<GameObject> containedObjects = new List<GameObject>(); // the objects that the tray is holding
+    public List<GameObject> objectsOnTray = new List<GameObject>();
 
-    private void OnCollisionEnter(Collision other)
+    /*
+        public GameObject SocketObject;
+        public GameObject areaObject;
+        public int numberOfPrefabs;
+    
+        private BoxCollider areacollider;
+    */
+    private void Start() { }
+
+    public void AddObjectToTray(GameObject obj)
     {
-        if (!containedObjects.Contains(other.gameObject))
+        if (obj == null)
         {
-            containedObjects.Add(other.gameObject);
-            Debug.Log("Added " + other.gameObject.name + " to tray");
+            Debug.LogError("Object is null");
+            return;
+        }
+        else if (objectsOnTray.Contains(obj))
+        {
+            Debug.LogError("Object is already on the tray");
+            return;
+        }
+        else
+        {
+            objectsOnTray.Add(obj);
         }
     }
 
-    private void OnCollisionExit(Collision other)
+    public void RemoveObjectFromTray(GameObject obj)
     {
-        if (containedObjects.Contains(other.gameObject))
+        if (obj == null)
         {
-            containedObjects.Remove(other.gameObject);
-            Debug.Log("Removed " + other.gameObject.name + " from tray");
+            Debug.LogError("Object is null");
+            return;
+        }
+        else if (!objectsOnTray.Contains(obj))
+        {
+            Debug.LogError("Object is not on the tray");
+            return;
+        }
+        else
+        {
+            objectsOnTray.Remove(obj);
         }
     }
 
-    private void OnDrawGizmos()
+    public List<LabObjects> GetObjectsOnTray()
     {
-        Gizmos.color = Color.green;
-        Gizmos.DrawWireCube(transform.position, transform.localScale);
+        List<LabObjects> labObjects = new List<LabObjects>();
+        foreach (var item in objectsOnTray)
+        {
+            LabItem labItem = item.gameObject.GetComponent<LabItem>();
+            if (labItem != null)
+            {
+                labObjects.Add(labItem.labObject);
+            }
+        }
+        return labObjects;
     }
 }
