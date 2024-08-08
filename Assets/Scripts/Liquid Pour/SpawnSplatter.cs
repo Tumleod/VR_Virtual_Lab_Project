@@ -1,22 +1,30 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.Mathematics;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.ParticleSystemJobs;
 
 public class SpawnSplatter : MonoBehaviour
 {
-    [SerializeField] GameObject splatterPrefab; // Prefab to instantiate when particles trigger
-    [SerializeField] ParticleSystem pourParticleSystem; // Particle system to monitor for triggers
+    [SerializeField]
+    GameObject splatterPrefab;
 
-    [SerializeField] List<ParticleSystem.Particle> enter = new List<ParticleSystem.Particle>(); // List to store particles that enter the trigger
+    [SerializeField]
+    ParticleSystem splatterParticleSystem;
+
+    [SerializeField]
+    ParticleSystem pourParticleSystem; // Particle system to monitor for triggers
+
+    [SerializeField]
+    List<ParticleSystem.Particle> enter = new List<ParticleSystem.Particle>(); // List to store particles that enter the trigger
     private List<ParticleCollisionEvent> collisionEvents = new List<ParticleCollisionEvent>(); // List to store collision events
 
     // Method to spawn a splatter at a given position
     public void SpawnSplatterTrigger(Vector3 position)
     {
         GameObject splatter = Instantiate(splatterPrefab, position, Quaternion.identity);
-        Destroy(splatter, 1f); // Destroy the splatter after 5 seconds
+        //Destroy(splatter, 1f); // Destroy the splatter after 5 seconds
     }
 
     // Called when particles collide with a GameObject
@@ -34,10 +42,18 @@ public class SpawnSplatter : MonoBehaviour
         // Loop through all collision events
         for (int i = 0; i < collisionEvents.Count; i++)
         {
+            Debug.Log(other.gameObject.name);
             ParticleCollisionEvent collision = collisionEvents[i];
             Vector3 position = collision.intersection;
-            
-            SpawnSplatterTrigger(position); // Spawn splatter at collision position
+            if (other.gameObject.CompareTag("Splatter"))
+            {
+                Instantiate(splatterParticleSystem, position, Quaternion.LookRotation(Vector3.up));
+                other.gameObject.GetComponent<SplatterScript>().IncreaseSize();
+            }
+            else
+            {
+                SpawnSplatterTrigger(position); // Spawn splatter at collision position
+            }
         }
     }
 }

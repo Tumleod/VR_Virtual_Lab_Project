@@ -7,7 +7,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Test Material
+  m_Name: Splatter Material
   m_Shader: {fileID: -6465566751694194690, guid: 84d08f8deb46912488758c31eba97cd6,
     type: 3}
   m_Parent: {fileID: 0}
@@ -121,20 +121,20 @@ Material:
     - _SrcBlend: 1
     - _SrcBlendAlpha: 1
     - _Surface: 0
-    - _Transparent: 0.83
+    - _Transparent: 0.8
     - _WorkflowMode: 1
     - _ZTest: 4
     - _ZWrite: 1
     - _ZWriteControl: 1
     m_Colors:
     - _BaseColor: {r: 1, g: 1, b: 1, a: 1}
-    - _BottomColor: {r: 0.597202, g: 0.9646866, b: 1, a: 1}
+    - _BottomColor: {r: 0.4999555, g: 0.94702065, b: 0.990566, a: 1}
     - _Color: {r: 1, g: 1, b: 1, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
     - _FoamColor: {r: 1, g: 1, b: 1, a: 1}
     - _Rim_Color: {r: 0.6084906, g: 0.98292136, b: 1, a: 1}
     - _SpecColor: {r: 0.19999996, g: 0.19999996, b: 0.19999996, a: 1}
-    - _TopColor: {r: 0.09344962, g: 0.8767337, b: 0.9433962, a: 1}
+    - _TopColor: {r: 0, g: 0, b: 0, a: 1}
   m_BuildTextureStacks: []
 --- !u!114 &8527440542439362496
 MonoBehaviour:
