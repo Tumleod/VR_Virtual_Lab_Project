@@ -128,13 +128,13 @@ Material:
     - _ZWriteControl: 1
     m_Colors:
     - _BaseColor: {r: 1, g: 1, b: 1, a: 1}
-    - _BottomColor: {r: 0.597202, g: 0.9646866, b: 1, a: 1}
+    - _BottomColor: {r: 1, g: 0.7975486, b: 0, a: 0.56078434}
     - _Color: {r: 1, g: 1, b: 1, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
     - _FoamColor: {r: 1, g: 1, b: 1, a: 1}
-    - _Rim_Color: {r: 0.6084906, g: 0.98292136, b: 1, a: 1}
+    - _Rim_Color: {r: 1, g: 0.8675709, b: 0, a: 1}
     - _SpecColor: {r: 0.19999996, g: 0.19999996, b: 0.19999996, a: 1}
-    - _TopColor: {r: 0.09344962, g: 0.8767337, b: 0.9433962, a: 1}
+    - _TopColor: {r: 1, g: 0.94218117, b: 0, a: 1}
   m_BuildTextureStacks: []
 --- !u!114 &8527440542439362496
 MonoBehaviour:

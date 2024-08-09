@@ -22,14 +22,23 @@ public class Pour : MonoBehaviour
     [SerializeField]
     ParticleSystem pourParticleSystem;
 
+    [SerializeField] ParticleSystemRenderer rend;
+
     [SerializeField]
     Liquid liquid;
+
+    [SerializeField] Renderer renderer;
 
     public bool isEmpty = false;
     private Coroutine pourCoroutine;
 
     [SerializeField]
     float elapsedTime = 0f;
+    
+
+    private void Awake() {
+        rend.material.color = renderer.sharedMaterial.GetColor("_BottomColor");
+    }
 
     // Update is called once per frame
     void Update()
