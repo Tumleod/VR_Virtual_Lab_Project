@@ -5,6 +5,12 @@ using UnityEngine;
 public class Pour : MonoBehaviour
 {
     [SerializeField]
+    TrashcanManager trashcanManager;
+
+    [SerializeField]
+    SpawnSplatter spawnSplatter;
+
+    [SerializeField]
     float containerAmount;
 
     [SerializeField]
@@ -16,14 +22,23 @@ public class Pour : MonoBehaviour
     [SerializeField]
     ParticleSystem pourParticleSystem;
 
+    [SerializeField] ParticleSystemRenderer rend;
+
     [SerializeField]
     Liquid liquid;
+
+    [SerializeField] Renderer renderer;
 
     public bool isEmpty = false;
     private Coroutine pourCoroutine;
 
     [SerializeField]
     float elapsedTime = 0f;
+    
+
+    private void Awake() {
+        rend.material.color = renderer.sharedMaterial.GetColor("_BottomColor");
+    }
 
     // Update is called once per frame
     void Update()
@@ -76,5 +91,22 @@ public class Pour : MonoBehaviour
         containerAmount = endAmount + 1;
         liquid.fillAmount = containerAmount;
         isEmpty = true;
+        PourComplete();
+    }
+
+    public void ResetPour()
+    {
+        if (isEmpty)
+        {
+            return;
+        }
+        elapsedTime = 0f;
+        containerAmount = startAmount;
+        liquid.fillAmount = containerAmount;
+    }
+
+    private void PourComplete()
+    {
+        trashcanManager.SetTrashcanCompleted(spawnSplatter.kemikalieEnum);
     }
 }
