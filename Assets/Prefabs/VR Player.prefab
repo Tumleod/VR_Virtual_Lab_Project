@@ -308,7 +308,7 @@ GameObject:
   - component: {fileID: 4160416938583470275}
   - component: {fileID: 7795186918798896959}
   m_Layer: 0
-  m_Name: Direct Interactor
+  m_Name: Right Direct Interactor
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -360,10 +360,34 @@ MonoBehaviour:
       m_Calls: []
   m_SelectEntered:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 5685889316161053459}
+        m_TargetAssemblyTypeName: PlayerController, Assembly-CSharp
+        m_MethodName: OnHoldObject
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   m_SelectExited:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 5685889316161053459}
+        m_TargetAssemblyTypeName: PlayerController, Assembly-CSharp
+        m_MethodName: OnReleaseObject
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   m_StartingHoverFilters: []
   m_StartingSelectFilters: []
   m_OnHoverEntered:
@@ -5285,6 +5309,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2698124943242339762}
+  - component: {fileID: 5685889316161053459}
   m_Layer: 0
   m_Name: VR Player
   m_TagString: Untagged
@@ -5311,6 +5336,47 @@ Transform:
   - {fileID: 3369120221691599482}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &5685889316161053459
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9008561866938379717}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c661a12d1fc80b445b3103c74cba0fb5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  triggerActionRight:
+    m_UseReference: 1
+    m_Action:
+      m_Name: Trigger Action Right
+      m_Type: 0
+      m_ExpectedControlType: 
+      m_Id: 88a39053-d615-4939-a6f1-49b9ab60e135
+      m_Processors: 
+      m_Interactions: 
+      m_SingletonActionBindings: []
+      m_Flags: 0
+    m_Reference: {fileID: 83097790271614945, guid: c348712bda248c246b8c49b3db54643f,
+      type: 3}
+  triggerActionLeft:
+    m_UseReference: 1
+    m_Action:
+      m_Name: Trigger Action Left
+      m_Type: 0
+      m_ExpectedControlType: 
+      m_Id: 9376cbe6-84bc-4cec-a9ab-87797524ddb0
+      m_Processors: 
+      m_Interactions: 
+      m_SingletonActionBindings: []
+      m_Flags: 0
+    m_Reference: {fileID: -5982496924579745919, guid: c348712bda248c246b8c49b3db54643f,
+      type: 3}
+  holdingGameObjectLeft: {fileID: 0}
+  holdingGameObjectRight: {fileID: 0}
+  isHoldingObject: 0
 --- !u!1 &9121756586051005497
 GameObject:
   m_ObjectHideFlags: 0
@@ -5506,7 +5572,7 @@ GameObject:
   - component: {fileID: 4774477810404584132}
   - component: {fileID: 542041999217513400}
   m_Layer: 0
-  m_Name: Direct Interactor
+  m_Name: Left Direct Interactor
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5558,10 +5624,34 @@ MonoBehaviour:
       m_Calls: []
   m_SelectEntered:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 5685889316161053459}
+        m_TargetAssemblyTypeName: PlayerController, Assembly-CSharp
+        m_MethodName: OnHoldObject
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   m_SelectExited:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 5685889316161053459}
+        m_TargetAssemblyTypeName: PlayerController, Assembly-CSharp
+        m_MethodName: OnReleaseObject
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   m_StartingHoverFilters: []
   m_StartingSelectFilters: []
   m_OnHoverEntered:

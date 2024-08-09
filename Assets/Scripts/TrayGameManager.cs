@@ -29,7 +29,10 @@ public class TrayGameManager : MonoBehaviour
         // Check if the objects on the tray are correct
         foreach (var item in currentLabObjectsInTrays)
         {
-            if (!correctLabObjects.Contains(item))
+            if (
+                !correctLabObjects.Contains(item)
+                || correctLabObjects.Count != currentLabObjectsInTrays.Count
+            )
             {
                 Debug.Log("Incorrect object on tray: " + item);
                 isCorrect = false;
